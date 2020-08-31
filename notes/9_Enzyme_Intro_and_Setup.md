@@ -6,6 +6,9 @@
 - In your test files, remove the imports for testing-library/react
 - Add import Enzyme from 'enzyme';
 - Add import EnzymeAdapter from 'enzyme-adapter-react-16';
+- Configure Enzyme using an instantiation of the adapter
+    - Enzyme.configure({ adapter: new EnzymeAdapter() });
+- Remove the body of the already existing test.
 
 1. Uses React-DOM to create a virtual DOM for testing.
 2. Shallow Rendering, it only goes one level deep
