@@ -1,4 +1,4 @@
-
+## a Random note
 # Types of Tests
 ## For this course the first two will be covered
 
