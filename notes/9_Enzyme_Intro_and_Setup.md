@@ -25,3 +25,6 @@
 4. Props and State, Enzyme can access both.
    - Can check the values.
    - Can manipulate the values.
+
+## An Additional Library to Remove testing properties from production code
+  - npm i --save-dev babel-plugin-react-remove-properties
