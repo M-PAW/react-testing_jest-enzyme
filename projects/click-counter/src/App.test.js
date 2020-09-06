@@ -24,6 +24,7 @@ const setup = (props={}, state=null) => {
  * @param {string} val - Value of data-test attribute for search.
  * @Return {ShallowWrapper}
  */
+// The find function
 const findByTestAttr = (wrapper, val) => {
   return wrapper.find(`[data-test="${val}"]`);
 }
@@ -49,10 +50,10 @@ test('renders counter display', () => {
   expect(counterDisplay.length).toBe(1);
 });
 
+// Target the initial state of a class component
 test('counter starts at 0', () => {
   const wrapper = setup();
-  const appComponent = wrapper.find("[data-test='component-app']");
-  expect(appComponent.length).toBe(1);
+  const initialCounterState = wrapper.state('counter');
 });
 
 test('clicking button increments counter display', () => {
