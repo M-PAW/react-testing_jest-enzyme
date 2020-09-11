@@ -59,11 +59,12 @@ test('counter starts at 0', () => {
   expect(initialCounterState).toBe(0);
 });
 
+// Find the button, counter-display, and simulate a button click to increment
 test('clicking button increments counter display', () => {
   const counter = 7;
   const wrapper = setup(null, { counter });
 
-  // find button and click
+  // find the button
   const button = findByTestAttr(wrapper, 'increment-button');
   // .simulate('actionName) simulates a page action
   button.simulate('click')
@@ -73,4 +74,33 @@ test('clicking button increments counter display', () => {
   expect(counterDisplay.text()).toContain(counter + 1)
 });
 
+// Find the button, counter-display, and simulate button click to decrement
+test('clicking button decrements coutner display', () => {
+  const counter = 8;
+  const wrapper = setup(null, {counter});
+
+  // find the button
+  const button = findByTestAttr(wrapper, 'decrement-button');
+  // simulate a user action, clicking the decrement button
+  button.simulate('click')
+
+  // find display and test value
+  const counterDisplay = findByTestAttr(wrapper, 'counter-display');
+  expect(counterDisplay.text()).toContain(counter - 1)
+})
+
+// Find the button, counter-dispaly, and simulate decrement, stop at zero
+test('clicking the button doesn\'t decrement below zero', () => {
+  const counter = 0;
+  const wrapper = setup(null, {counter});
+
+  // find the button
+  const button = findByTestAttr(wrapper, 'decrement-button');
+  // simulate user action, clicking decrement button
+  button.simulate('click')
+
+  // fubd diplay and test value
+  const counterDisplay = findByTestAttr(wrapper, 'counter-display');
+  expect(counterDisplay.text()).toContain(0)
+})
 
