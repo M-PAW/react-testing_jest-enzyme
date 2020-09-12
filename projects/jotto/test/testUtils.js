@@ -12,7 +12,7 @@ export const findByTestAttr = (wrapper, val) => {
 }
 
 export const checkProps = (component, conformingProps) => {
-    const propError = checkPropTypes(
+    const propError = CheckPropTypes(
         component.propTypes,
         conformingProps,
         'prop',
