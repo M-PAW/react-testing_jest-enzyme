@@ -17,7 +17,8 @@ const setup = (props={}, state=null) => {
 };
 
 test('renders congrats without an error', () => {
-    const wrapper = setup();
+    // the setup() must have props to prevent propType .isRequired error
+    const wrapper = setup({ success: false });
     const component = findByTestAttr(wrapper, "component-congrats");
     expect(component.length).toBe(1);
 });
@@ -35,6 +36,7 @@ test('renders non-empty congrats message when success prop is true', () => {
 });
 
 test('does not throw warning with expected props', () => {
+    // to test this for failure, wrap the data in quotes to make it a string
     const expectedProps = { success: false };
     checkProps(Congrats, expectedProps);
 })

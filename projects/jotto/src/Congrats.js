@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
  * @returns {JSX.Element} - Rendered component (or null if 'success' if prop is false)
  */
 
-export default (props) => {
+const Congrats = (props) => {
         
     if (props.success) {
         return (
@@ -24,3 +24,10 @@ export default (props) => {
         )
     }
 }
+
+Congrats.propTypes = { 
+    // .isRequired generates an error if a prop is missing
+    success: PropTypes.bool.isRequired,
+ }
+
+export default Congrats;
