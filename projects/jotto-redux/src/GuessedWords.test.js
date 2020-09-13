@@ -24,14 +24,29 @@ const defaultProps = {
      return shallow(<GuessedWords {...setupProps}/>)
  };
 
- test('renders guessedwords without an error', () => {
-     // the setup() must have props to prevent
-     // propType .isRequired error
-     const wrapper = setup({ success: false });
-     const component = findByTestAttr(wrapper, "component-guessedwords");
-    expect(component.length).toBe(1);
- })
-
  test('does not throw warning with expected props', () => {
     checkProps(GuessedWords, defaultProps);
  });
+
+ describe('if ther are no words guessed', () => {
+     // beforeEach() allows wrapper to be assigned and used
+     // before each test is run.
+     let wrapper
+     beforeEach(() => {
+         wrapper = setup({ guessedWords: [] })
+     })
+    test('renders guessedwords without an error', () => {
+        const component = findByTestAttr(wrapper, 'component-guessed-words')
+        expect(component.length).toBe(1);
+    });
+
+    test('renders instructions to guess a word', () => {
+        const instructions = findByTestAttr(wrapper, 'guess-instructions');
+        expect(instructions.text().length).not.toBe(0);
+    });
+
+ })
+
+ describe('if there are words guessed', () => {
+
+ })
