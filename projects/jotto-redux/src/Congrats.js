@@ -1,0 +1,33 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+/**
+ * Functional react component for congratulatory message.
+ * @function
+ * @param {object} props -  react props
+ * @returns {JSX.Element} - Rendered component (or null if 'success' if prop is false)
+ */
+
+const Congrats = (props) => {
+        
+    if (props.success) {
+        return (
+            <div data-test="component-congrats">
+                <span data-test="congrats-message">
+                        Congratulations! You guessed the word!
+                </span>
+            </div>
+        );
+    } else {
+        return (
+            <div data-test="component-congrats" />
+        )
+    }
+}
+
+Congrats.propTypes = { 
+    // .isRequired generates an error if a prop is missing
+    success: PropTypes.bool.isRequired,
+ }
+
+export default Congrats;
