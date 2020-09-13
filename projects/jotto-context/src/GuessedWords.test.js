@@ -8,14 +8,9 @@ import GuessedWords from './GuessedWords';
     setup default props to test with, they can be overwritten later with props you pass in
 */
 
-const defaultProps = { 
-    secretWord: '',
-    success: false,
-    guessedwords: [
-        {guessedWords: '',
-        letterMatchCount: null}
-    ],
-};
+const defaultProps = {
+    guessedWords: [{ guessedWord: 'train', letterMatchCount: 3 }],
+}
 
 /**
  * Factor function to create a ShallowWrapper for
@@ -25,14 +20,26 @@ const defaultProps = {
  * @returns {ShallowWrapper}
  */
 
- const setup = (props={}, state=null) => {
-     const setupProps = {defaultProps, ...props}
-     return shallow(<GuessedWords {...setupProps} />)
- };
+const setup = (props={}) => {
+    const setupProps = {...defaultProps, ...props}
+    return shallow(<GuessedWords {...setupProps}/>)
+};
 
  test('renders guessedwords without an error', () => {
      // the setup() must have props to prevent propType .isRequired error
      const wrapper = setup({ success: false });
      const component = findByTestAttr(wrapper, "component-guessedwords");
      expect(component.length).toBe(1);
+ });
+
+ test('does not throw warning with expected props', () => {
+    checkProps(GuessedWords, defaultProps);
+ });
+
+ describe('if there are no words guessed', () => {
+
+ });
+
+ describe('if there are words guessed', () => {
+
  });
