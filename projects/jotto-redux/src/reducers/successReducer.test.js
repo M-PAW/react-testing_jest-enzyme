@@ -3,7 +3,8 @@ import { actionTypes } from '../actions';
 import successReducer from './successReducer';
 
 test('returns default initial state of `false` when no action is passed', () => {
-    const newState = successReducer();
+    // Must pass in an empty action or you will receive an Cannot Read Type error.
+    const newState = successReducer(undefined, {});
     expect(newState).toBe(false);
 });
 
