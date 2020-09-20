@@ -72,3 +72,27 @@
             ]
             
 
+## Testing Async Action Creator
+
+- Creat store using storeFactory()
+
+- Async actions: store.dispatch() returns promise
+
+- Put tests in .then() callback
+    - tests will run after dispatch completes
+
+- moxios.wait() is also asynchronous
+- More important than ever ti see tests fail
+- Very easy for tests to complete before async
+
+## Tests can pass even though assertion fails, cases below.
+ 1. Test function starts async call
+    - Exits before promise resolves
+
+ 2. Assertion runs after promise resolves
+    - After test already passed
+
+### It's critical to see your tests fail before they are
+### made to be passing.
+
+# Consider learning Redux-Mock-Store
