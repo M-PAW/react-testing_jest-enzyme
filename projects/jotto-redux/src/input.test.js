@@ -10,7 +10,8 @@ import Input from './input';
  * @param {object} initialState 
  * @returns {ShallowWrapper}
  * 
- * storeFactory is used in testing, and can be equiped with reducers & actionCreators
+ * storeFactory is used in testing, and can be equiped with
+ * reducers & actionCreators
  */
 const setup = (initialState={}) => {
     const store = storeFactory(initialState);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { guessWord, guessWprd } from './actions';
+import { guessWord } from './actions';
 
 class Input extends Component {
     render() {
