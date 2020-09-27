@@ -65,12 +65,11 @@ function App() {
       <languageContext.Provider value={state.language}>
         <LanguagePicker setLanguage={setLanguage} />
         <guessedWordsContext.GuessedWordsProvider>
-        <successContext.SuccessProvider>
-          <Congrats />
-          <Input secretWord={ state.secretWord } />
-        </successContext.SuccessProvider>
-        
-          <GuessedWords />
+          <successContext.SuccessProvider>
+            <Congrats />
+            <Input secretWord={ state.secretWord } />
+          </successContext.SuccessProvider>
+            <GuessedWords />
         </guessedWordsContext.GuessedWordsProvider>
       </languageContext.Provider>
     </div>
